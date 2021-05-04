@@ -2,18 +2,12 @@ const { test, expect } = require('@jest/globals');
 const Engineer = require('../lib/Engineer');
 
 test("Can create a new Engineer object", () => {
-    const newEmployee = new Engineer("tim", 5, "tim@company.net");
+    const newEmployee = new Engineer("tim", 5, "tim@company.net", 0);
     expect(typeof(newEmployee)).toBe('object')
 })
 
-test("Can add a new name to Employee object", () => {
-    const newEmployee = new Employee("tim", 5, "tim@company.net");
-    expect(newEmployee.name).toBe("tim");
-});
+test("Can get Engineer using getRole() method", () => {
+    const newEmployee = new Engineer("tim", 5, "tim@company.net", 0);
 
-
-test("Can get name using getName() method", () => {
-    const newEmployee = new Employee("tim", 5, "tim@company.net");
-
-    expect(newEmployee.getName()).toBe("tim");
+    expect(newEmployee.getRole()).toBe("Engineer");
 });

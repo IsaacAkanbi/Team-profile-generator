@@ -1,0 +1,54 @@
+.body {
+    background-color: beige;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  
+  header {
+    font-size: 30px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-style: normal;
+    background: #6a7a88;
+    color: #fff;
+    float: inline;
+  }
+  .nav {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-around;
+  }
+  
+  .a {
+    float: wrap;
+    flex-wrap: left;
+  }
+
+  img {
+    max-width: 10%;
+    height: auto;
+  }
+   
+  .card-body {
+    font-size: 40px;
+    flex: 1;
+    font-size: 20px;
+    background-color: rgba(174, 255, 127, 0.671);
+    padding: 20px;
+    margin: 5px;
+  }
+  
+ footer {
+    text-align: center;
+    font-size: 25pt;
+  }
+  
+  @media screen and (max-width: 768px) {
+    main,
+    nav {
+      flex-direction: column;
+    }
+    
+    header {
+      background: #772014;
+    }
+
+  }

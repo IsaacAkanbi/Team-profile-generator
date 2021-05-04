@@ -162,7 +162,7 @@ const addIntern = () => {
 
 const quit = () => {
 // const writeFileAsync = util.promisify(fileSystem.writeFile);
-    fileSystem.writeFileSync("./index.html", buildHtml(team), "utf-8")
+    fileSystem.writeFileSync("./index.html", renderPage(team), "utf-8")
 
 //   console.log("Quitting ....");
 };
@@ -176,12 +176,11 @@ const promptUser = () => {
     );
 };
 */
-
 var managerCard = (manager) => {
   return `<div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">Engineer</h5>
+        <img src="./images/photo.jpg" alt="photo id" class="float-left" />
+        <h5 class="card-title">Manager</h5>
         <p class="card-text"> ${manager.name} </p>
         <p class="card-text"> ${manager.id} </p>
         <p class="card-text"> ${manager.email} </p>
@@ -193,7 +192,62 @@ var managerCard = (manager) => {
 
 var buildHtml = (answers) => {
     console.log("answers", answers);
- return `<!DOCTYPE html>
+ const buildManager = (manager) => {
+     return `
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+        <h5 class="card-title">Manager</h5>
+        <p class="card-text"> ${manager.name} </p>
+        <p class="card-text"> ${manager.id} </p>
+        <p class="card-text"> ${manager.email} </p>
+        <p class="card-text"> ${manager.number} </p>
+
+        <a href="#" class="btn btn-primary">email: href="${manager.email}"</a>
+        </div>
+    </div>`
+ };
+ const buildEngineer = (engineer) => {
+    return `
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Engineer</h5>
+            <p class="card-text"> ${engineer.name} </p>
+            <p class="card-text"> ${engineer.id} </p>
+            <p class="card-text"> ${engineer.email} </p>
+            <p class="card-text"> ${engineer.number} </p>
+           
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>`
+ };
+ const buildIntern = (intern) => {
+    return `
+    <div class="card" style="width: 18rem;">
+        <img src="./Assets/coffee.png" class="card-img-top" alt="coffee">
+        <div class="card-body">
+            <h5 class="card-title">Intern</h5>
+            <p class="card-text"> ${intern.name} </p>
+            <p class="card-text"> ${intern.id} </p>
+            <p class="card-text"> ${intern.email} </p>
+            <p class="card-text"> ${intern.number} </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>`
+ };
+
+ const myPage = []
+
+ myPage.push(answers.filter(person => person.getRole() === "Manager").map(manager => buildManager(manager)))
+ myPage.push(answers.filter(person => person.getRole() === "Engineer").map(engineer => buildEngineer(engineer)))
+ myPage.push(answers.filter(person => person.getRole() === "Intern").map(intern => buildIntern(intern)))
+ return myPage.join("");
+};
+
+const renderPage = team => {
+    return `
+    <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -206,76 +260,12 @@ var buildHtml = (answers) => {
 <div class="jumbotron jumbotron-fluid">
 <div class="container"> 
  <header> Team Profile </header>
-
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">Manager</h5>
-        <p class="card-text"> ${answers.Manager} </p>
-        <p class="card-text"> ${answers.id} </p>
-        <p class="card-text"> ${answers.email} </p>
-        <p class="card-text"> ${answers.number} </p>
-
-        <a href="#" class="btn btn-primary">email: href="${answers.email}"</a>
-        </div>
-    </div> 
-
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Engineer</h5>
-            <p class="card-text"> ${answers.Engineer} </p>
-            <p class="card-text"> ${answers.id} </p>
-            <p class="card-text"> ${answers.email} </p>
-            <p class="card-text"> ${answers.number} </p>
-           
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Engineer</h5>
-            <p class="card-text"> ${answers.Engineer} </p>
-            <p class="card-text"> ${answers.id} </p>
-            <p class="card-text"> ${answers.email} </p>
-            <p class="card-text"> ${answers.number} </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Intern</h5>
-            <p class="card-text"> ${answers.Intern} </p>
-            <p class="card-text"> ${answers.id} </p>
-            <p class="card-text"> ${answers.email} </p>
-            <p class="card-text"> ${answers.number} </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div>
-
+ ${buildHtml(team)}
+    
 </div>
 </div>
 </body>
 </html>`
-};
+}
 
 promptUser();
-/* 
-const init = (type) => {
-Questions = eval(type+'Questions')
-    promptUser()
-     
-    .then((answers) => {
-             
-        writeFileAsync('index.html', buildHtml(answers))
-
-    })
-      .then(() => console.log('Successfully wrote to index.html'))
-      .catch((err) => console.error(err));
-  };
-  
-  init('Manager'); */
