@@ -167,41 +167,32 @@ const quit = () => {
 //   console.log("Quitting ....");
 };
 
-/*
-const promptUser = () => {
-    return inquirer.prompt(q).then(
-        function(answer){
-            console.log(answer)
-        }
-    );
-};
-*/
-var managerCard = (manager) => {
-  return `<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <img src="./images/photo.jpg" alt="photo id" class="float-left" />
-        <h5 class="card-title">Manager</h5>
-        <p class="card-text"> ${manager.name} </p>
-        <p class="card-text"> ${manager.id} </p>
-        <p class="card-text"> ${manager.email} </p>
-        <p class="card-text"> ${manager.number} </p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>`;
-};
+// var managerCard = (manager) => {
+//   return `<div class="card" style="width: 18rem;">
+//     <div class="card-body">
+//         <img src="./Assets/coffee.png" alt="coffee" class="float-left" />
+//         <p class="card-text"> ${manager.name} </p>
+//         <h5 class="card-title">Manager</h5>
+//         <p class="card-text">ID: ${manager.id} </p>
+//         <p class="card-text">Email: ${manager.email} </p>
+//         <p class="card-text">Employee Number: ${manager.number} </p>
+//         <a href="#" class="btn btn-primary">Go somewhere</a>
+//     </div>
+// </div>`;
+// };
 
 var buildHtml = (answers) => {
     console.log("answers", answers);
  const buildManager = (manager) => {
      return `
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="./Assets/pexels.jpg" class="card-img-top" alt="coffee">
         <div class="card-body">
         <h5 class="card-title">Manager</h5>
-        <p class="card-text"> ${manager.name} </p>
-        <p class="card-text"> ${manager.id} </p>
-        <p class="card-text"> ${manager.email} </p>
-        <p class="card-text"> ${manager.number} </p>
+        <p class="card-text">Name: ${manager.name} </p>
+        <p class="card-text">ID: ${manager.id} </p>
+        <p class="card-text">Email: ${manager.email} </p>
+        <p class="card-text">Employee Number: ${manager.number} </p>
 
         <a href="#" class="btn btn-primary">email: href="${manager.email}"</a>
         </div>
@@ -210,13 +201,13 @@ var buildHtml = (answers) => {
  const buildEngineer = (engineer) => {
     return `
     <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+        <img src="./Assets/engineer.jpg" class="card-img-top" alt="goggle">
         <div class="card-body">
             <h5 class="card-title">Engineer</h5>
-            <p class="card-text"> ${engineer.name} </p>
-            <p class="card-text"> ${engineer.id} </p>
-            <p class="card-text"> ${engineer.email} </p>
-            <p class="card-text"> ${engineer.number} </p>
+            <p class="card-text">Name: ${engineer.name} </p>
+            <p class="card-text">ID: ${engineer.id} </p>
+            <p class="card-text">Email: ${engineer.email} </p>
+            <p class="card-text">Employee Number: ${engineer.number} </p>
            
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
@@ -225,13 +216,14 @@ var buildHtml = (answers) => {
  const buildIntern = (intern) => {
     return `
     <div class="card" style="width: 18rem;">
-        <img src="./Assets/coffee.png" class="card-img-top" alt="coffee">
+        <img src="./Assets/intern.png" class="card-img-top" alt="scholar">
         <div class="card-body">
             <h5 class="card-title">Intern</h5>
-            <p class="card-text"> ${intern.name} </p>
-            <p class="card-text"> ${intern.id} </p>
-            <p class="card-text"> ${intern.email} </p>
-            <p class="card-text"> ${intern.number} </p>
+            <p class="card-text">Name: ${intern.name} </p>
+            <p class="card-text">ID: ${intern.id} </p>
+            <p class="card-text">Email: ${intern.email} </p>
+            <p class="card-text">Employee Number: ${intern.number} </p>
+            <p class="card-text">School: ${intern.schoolName} </p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>`
