@@ -189,7 +189,7 @@ var buildHtml = (answers) => {
         <div class="card-body">
         <h3 class="card-text">${manager.name} </h3>
         <h5 class="card-title">Manager</h5>
-        <img src="./Assets/pexels.jpg" class="card-img-top" alt="coffee">
+        <img src="./src/pexels.jpg" class="card-img-top" alt="coffee">
         <p class="card-text">ID: ${manager.id} </p>
         <p class="nav-item"> <a class="nav-link" href="mailto:${manager.email}">Email: ${manager.email}</a>      </p>
         <p class="card-text">Office Number: ${manager.officeNumber} </p>
@@ -203,7 +203,7 @@ var buildHtml = (answers) => {
         <div class="card-body">
             <h3 class="card-text">${engineer.name} </h3>
             <h5 class="card-title">Engineer</h5>
-            <img src="./Assets/engineer.jpg" class="card-img-top" style= "float-left" alt="goggle">
+            <img src="./src/engineer.jpg" class="card-img-top" style= "float-left" alt="goggle">
             <p class="card-text">ID: ${engineer.id} </p>
             <p class="nav-item"> <a class="nav-link" href="mailto:${engineer.email}">Email: ${engineer.email}</a>      </p>
             <p class="card-text"> Github: <a href="https://github.com/${engineer.git}">
@@ -218,7 +218,7 @@ var buildHtml = (answers) => {
         <div class="card-body">
             <h3 class="card-text"> ${intern.name} </h3>
             <h5 class="card-title">INTERN</h5>
-            <img src="./Assets/intern.png" class="card-img-top" alt="scholar">
+            <img src="./src/intern.png" class="card-img-top" alt="scholar">
             <p class="card-text">ID: ${intern.id} </p>
             <p class="nav-item"> <a class="nav-link" href="mailto:${intern.email}">Email: ${intern.email}</a>      </p>
             <p class="card-text">School: ${intern.schoolName} </p>
