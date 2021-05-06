@@ -1,5 +1,5 @@
-.body {
-    background-color: beige;
+body {
+      background-color: rgba(236, 228, 238, 0.986);
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   }
   
@@ -36,10 +36,6 @@
     margin: 5px;
   }
   
- footer {
-    text-align: center;
-    font-size: 25pt;
-  }
   
   @media screen and (max-width: 768px) {
     main,
