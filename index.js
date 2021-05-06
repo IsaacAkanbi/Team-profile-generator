@@ -185,45 +185,43 @@ var buildHtml = (answers) => {
     console.log("answers", answers);
  const buildManager = (manager) => {
      return `
-    <div class="card" style="width: 18rem;">
-        <img src="./Assets/pexels.jpg" class="card-img-top" alt="coffee">
+    <div class="card" style="width: 20rem;">
         <div class="card-body">
+        <h3 class="card-text">${manager.name} </h3>
         <h5 class="card-title">Manager</h5>
-        <p class="card-text">Name: ${manager.name} </p>
+        <img src="./Assets/pexels.jpg" class="card-img-top" alt="coffee">
         <p class="card-text">ID: ${manager.id} </p>
-        <p class="card-text">Email: ${manager.email} </p>
+        <p class="nav-item"> <a class="nav-link" href="mailto:${manager.email}">Email: ${manager.email}</a>      </p>
         <p class="card-text">Office Number: ${manager.officeNumber} </p>
-
-        <a href="#" class="btn btn-primary">email: href="${manager.email}"</a>
         </div>
     </div>`
  };
  const buildEngineer = (engineer) => {
     return `
-    <div class="card" style="width: 18rem;">
-        <img src="./Assets/engineer.jpg" class="card-img-top" alt="goggle">
+    <div class="card" style="width: 20rem;">
+        
         <div class="card-body">
+            <h3 class="card-text">${engineer.name} </h3>
             <h5 class="card-title">Engineer</h5>
-            <p class="card-text">Name: ${engineer.name} </p>
+            <img src="./Assets/engineer.jpg" class="card-img-top" style= "float-left" alt="goggle">
             <p class="card-text">ID: ${engineer.id} </p>
-            <p class="card-text">Email: ${engineer.email} </p>
-            <p class="card-text">GitHub: ${engineer.git} </p>
-           
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <p class="nav-item"> <a class="nav-link" href="mailto:${engineer.email}">Email: ${engineer.email}</a>      </p>
+            <p class="card-text"> Github: <a href="https://github.com/${engineer.git}">
+              <github>https://github.com/${engineer.git} </github>
+              </a> </p>
         </div>
     </div>`
  };
  const buildIntern = (intern) => {
     return `
-    <div class="card" style="width: 18rem;">
-        <img src="./Assets/intern.png" class="card-img-top" alt="scholar">
+    <div class="card" style="width: 20rem;">
         <div class="card-body">
-            <h5 class="card-title">Intern</h5>
-            <p class="card-text">Name: ${intern.name} </p>
+            <h3 class="card-text"> ${intern.name} </h3>
+            <h5 class="card-title">INTERN</h5>
+            <img src="./Assets/intern.png" class="card-img-top" alt="scholar">
             <p class="card-text">ID: ${intern.id} </p>
-            <p class="card-text">Email: ${intern.email} </p>
+            <p class="nav-item"> <a class="nav-link" href="mailto:${intern.email}">Email: ${intern.email}</a>      </p>
             <p class="card-text">School: ${intern.schoolName} </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
     </div>`
  };
@@ -243,16 +241,18 @@ const renderPage = team => {
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link rel="stylesheet" href="./style.css" />
   <title>Team profile</title>
 </head>
 <body>
 <div class="jumbotron jumbotron-fluid">
 <div class="container"> 
  <header> Team Profile </header>
+ <div class="row" col>
  ${buildHtml(team)}
-    
+  
+ </div>
 </div>
 </div>
 </body>
