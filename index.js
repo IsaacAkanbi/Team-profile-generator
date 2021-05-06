@@ -27,7 +27,7 @@ const managerQuestion = [
   },
   {
     type: "input",
-    name: "number",
+    name: "officeNumber",
     message: "Enter office number?",
   },
 ];
@@ -119,7 +119,7 @@ const addManager = () => {
       answer.managerName,
       answer.id,
       answer.email,
-      answer.number
+      answer.officeNumber
     );
     //console.log(newManager);
 
@@ -150,7 +150,7 @@ const addIntern = () => {
   console.log("Adding Intern");
   inquirer.prompt(internQuestion).then((answer) => {
     var newIntern = new Intern(
-      answer.interName,
+      answer.internName,
       answer.id,
       answer.email,
       answer.school
@@ -192,7 +192,7 @@ var buildHtml = (answers) => {
         <p class="card-text">Name: ${manager.name} </p>
         <p class="card-text">ID: ${manager.id} </p>
         <p class="card-text">Email: ${manager.email} </p>
-        <p class="card-text">Employee Number: ${manager.number} </p>
+        <p class="card-text">Office Number: ${manager.officeNumber} </p>
 
         <a href="#" class="btn btn-primary">email: href="${manager.email}"</a>
         </div>
@@ -207,7 +207,7 @@ var buildHtml = (answers) => {
             <p class="card-text">Name: ${engineer.name} </p>
             <p class="card-text">ID: ${engineer.id} </p>
             <p class="card-text">Email: ${engineer.email} </p>
-            <p class="card-text">Employee Number: ${engineer.number} </p>
+            <p class="card-text">GitHub: ${engineer.git} </p>
            
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
@@ -222,7 +222,6 @@ var buildHtml = (answers) => {
             <p class="card-text">Name: ${intern.name} </p>
             <p class="card-text">ID: ${intern.id} </p>
             <p class="card-text">Email: ${intern.email} </p>
-            <p class="card-text">Employee Number: ${intern.number} </p>
             <p class="card-text">School: ${intern.schoolName} </p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
